@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      const pathname = window.location.pathname;
+      const redirectUrl = pathname.startsWith("/typing-site")
+        ? "/typing-site/#/"
+        : "/#/";
+
+      window.location.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the app...</p>
+  </body>
+</html>
