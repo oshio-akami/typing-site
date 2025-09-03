@@ -32,26 +32,26 @@ export function DiffHighlight({ className = "", original, input }: Props) {
       if (i + 1 < diffs.length && diffs[i + 1][0] === DIFF_INSERT) {
         const insertData = diffs[i + 1][1];
         jsx.push(
-          <span key={key++} className="bg-yellow-100 font-bold">
+          <span key={key++} className="bg-yellow-100 font-medium">
             {data}
           </span>
         );
         jsx.push(
-          <span key={key++} className="bg-red-100 font-bold">
+          <span key={key++} className="bg-red-100 font-medium">
             {insertData}
           </span>
         );
         i++;
       } else {
         jsx.push(
-          <span key={key++} className="bg-yellow-100 font-bold">
+          <span key={key++} className="bg-yellow-100 font-medium">
             {data}
           </span>
         );
       }
     } else if (op === DIFF_INSERT) {
       jsx.push(
-        <span key={key++} className="bg-red-100 font-bold">
+        <span key={key++} className="bg-red-100 font-medium">
           {data}
         </span>
       );
@@ -59,7 +59,7 @@ export function DiffHighlight({ className = "", original, input }: Props) {
   }
 
   return (
-    <div className={`overflow-y-scroll whitespace-pre-wrap ${className}`}>
+    <div className={`overflow-y-scroll whitespace-pre-wrap pr-2  ${className}`}>
       {jsx}
     </div>
   );
