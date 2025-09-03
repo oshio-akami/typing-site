@@ -14,7 +14,7 @@ export default function Text({
   children,
 }: Props) {
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={`flex gap-2 items-center ${className}`}>
       {leftSection && leftSection}
       {children}
       {rightSection && rightSection}

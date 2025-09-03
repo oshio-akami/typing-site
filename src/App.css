@@ -51,7 +51,36 @@ body {
   width: 1500px;
   max-width: 90%;
   margin: 0 auto;
-  padding: 4%;
+  padding: 2%;
+}
+svg:focus {
+  outline: none;
+}
+
+@theme {
+  --color-primary-50: #fffaed;
+  --color-primary-100: #fff3d4;
+  --color-primary-200: #ffe4a8;
+  --color-primary-300: #ffcf71;
+  --color-primary-400: #ffb84e;
+  --color-primary-500: #fe9511;
+  --color-primary-600: #ef7907;
+  --color-primary-700: #c65b08;
+  --color-primary-800: #9d480f;
+  --color-primary-900: #7e3c10;
+  --color-primary-950: #441c06;
+
+  --color-secondary-50: #eef5ff;
+  --color-secondary-100: #dae8ff;
+  --color-secondary-200: #bdd8ff;
+  --color-secondary-300: #90c0ff;
+  --color-secondary-400: #4e95ff;
+  --color-secondary-500: #3578fc;
+  --color-secondary-600: #1f57f1;
+  --color-secondary-700: #1742de;
+  --color-secondary-800: #1937b4;
+  --color-secondary-900: #1a338e;
+  --color-secondary-950: #152156;
 }
 
 /*---break---*/

@@ -1,37 +1,57 @@
 import { useNavigate } from "react-router-dom";
-import { Card, CardContent, CardTitle } from "../ui/card";
+import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
+import HistoryChart from "../ui/result/historyChart";
+import { getResults } from "@/lib/localStorage/results";
+import ResultHistoryCard from "../ui/result/resultHistoryCard";
 
 export default function Home() {
   const navigate = useNavigate();
+  const results = getResults();
+  const viewResults = results.map((result, index) => ({
+    ...result,
+    title: index === 0 ? "前回" : `${index + 1}回前`,
+  }));
+
+  const resultCards = viewResults.map((result, index) => (
+    <ResultHistoryCard
+      key={index}
+      className="mb-5"
+      title={result.title}
+      result={result}
+    />
+  ));
   return (
-    <div className="min-h-[100vh]">
-      <Card className="w-full pl-20 pr-20 rounded-none">
-        <CardTitle>
-          <h1 className="text-3xl text-center">入力練習アプリ</h1>
-        </CardTitle>
-        <CardContent className="flex flex-col gap-10">
-          <div>
-            <h2 className="text-xl font-bold">
-              このアプリでは以下のことができます
-            </h2>
-            <ul className="text-lg">
-              <li>
-                ・自身で用意した見本文章を利用した入力練習ができるサイトです
-              </li>
-              <li>・終了後に正答率・入力時間・ミスを確認できます</li>
-              <li>・入力した文字の間違いは赤色で表示</li>
-              <li>・入力漏れは黄色で表示</li>
-            </ul>
-          </div>
-          <Button
-            className="bg-green-400 hover:bg-green-500 text-white w-40 h-12 text-xl"
-            onClick={() => navigate("/play", { state: { originalText: "" } })}
-          >
-            開始する
-          </Button>
-        </CardContent>
-      </Card>
+    <div className="wrapper">
+      <div className="min-h-[100vh]">
+        <h1 className="text-3xl text-center font-bold mb-10">入力練習アプリ</h1>
+        <Card className="w-full pl-20 pr-20 rounded-none">
+          <CardContent className="flex flex-col gap-10">
+            <div>
+              <h2 className="text-xl font-bold">
+                このアプリでは以下のことができます
+              </h2>
+              <ul className="text-lg">
+                <li>ご自身で用意した文章を使ってタイピング練習ができます。</li>
+                <li>終了後には、正答率、入力時間、ミスの確認できます。</li>
+                <li>ミスは色でハイライト表示されます。</li>
+                <li>過去の結果は10件まで保存されます。</li>
+              </ul>
+            </div>
+            <Button
+              className="bg-primary-400 hover:bg-primary-500 text-white w-40 h-12 text-xl"
+              onClick={() => navigate("/play", { state: { originalText: "" } })}
+            >
+              開始する
+            </Button>
+          </CardContent>
+        </Card>
+        <p className="text-3xl text-center mb-5 mt-5">過去の結果</p>
+        <Card className="w-full bg-white rounded-none p-3 mb-10">
+          <HistoryChart results={viewResults} />
+        </Card>
+        {resultCards}
+      </div>
     </div>
   );
 }

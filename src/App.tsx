@@ -6,8 +6,8 @@ import Result from "./components/pages/result";
 
 function App() {
   return (
-    <div className="bg-gray-50 h-full">
-      <div className="wrapper">
+    <div className="bg-primary-50 h-full">
+      <div>
         <HashRouter>
           <Routes>
             <Route path="/" element={<Home />} />

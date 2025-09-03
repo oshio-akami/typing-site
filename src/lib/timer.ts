@@ -1,7 +1,7 @@
-export const formatTimer = (time: number) => {
-  const min = Math.floor(time / 60);
-  const sec = time % 60;
+export const formatTimer = (timeInSeconds: number) => {
+  const min = Math.floor(timeInSeconds / 60);
+  const sec = timeInSeconds % 60;
   const minStr = min.toString().padStart(2, "0");
   const secStr = sec.toString().padStart(2, "0");
-  return `${minStr}:${secStr}`;
+  return `${minStr}分${secStr}秒`;
 };
