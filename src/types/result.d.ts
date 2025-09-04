@@ -17,3 +17,8 @@ export interface Result {
   /**余計な入力 */
   insertionCount: number;
 }
+
+/**タイトルを追加したリザルト */
+interface ViewResult extends Result {
+  title: string;
+}

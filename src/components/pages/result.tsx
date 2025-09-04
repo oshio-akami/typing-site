@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Card } from "../ui/card";
 import { HomeIcon, PlayIcon } from "lucide-react";
 import { Button } from "../ui/button";
-import HistoryChart from "../ui/result/historyChart";
 import ResultCard from "../ui/result/resultCard";
 import type { Result } from "@/types/result";
 import { getResults } from "@/lib/localStorage/results";
@@ -23,20 +21,6 @@ export default function Result() {
   }
 
   const results = getResults();
-  const resultHistories = [...results].slice(1, results.length);
-
-  const resultCards = resultHistories.map((result, index) => {
-    const title = index === 0 ? "前回" : `${index + 1}回前`;
-
-    return (
-      <ResultHistoryCard
-        key={index}
-        className="mb-5 shadow-md border-2"
-        title={title}
-        result={result}
-      />
-    );
-  });
   const viewResults = [...results]
     .map((result, index) => ({
       ...result,
@@ -73,11 +57,7 @@ export default function Result() {
         </div>
         <div>
           <p className="text-3xl text-center mt-5 mb-5 font-bold">過去の結果</p>
-
-          <Card className="w-full bg-white rounded-none p-3 mb-5">
-            <HistoryChart results={viewResults} />
-          </Card>
-          {resultCards}
+          <ResultHistoryCard results={viewResults} />
         </div>
       </div>
     </div>

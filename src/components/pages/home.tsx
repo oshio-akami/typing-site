@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
-import HistoryChart from "../ui/result/historyChart";
 import { getResults } from "@/lib/localStorage/results";
 import ResultHistoryCard from "../ui/result/resultHistoryCard";
 
@@ -12,15 +11,6 @@ export default function Home() {
     ...result,
     title: index === 0 ? "前回" : `${index + 1}回前`,
   }));
-
-  const resultCards = viewResults.map((result, index) => (
-    <ResultHistoryCard
-      key={index}
-      className="mb-5"
-      title={result.title}
-      result={result}
-    />
-  ));
   return (
     <div className="wrapper">
       <div className="min-h-[100vh]">
@@ -47,10 +37,7 @@ export default function Home() {
           </CardContent>
         </Card>
         <p className="text-3xl text-center mb-5 mt-5">過去の結果</p>
-        <Card className="w-full bg-white rounded-none p-3 mb-10">
-          <HistoryChart results={viewResults} />
-        </Card>
-        {resultCards}
+        <ResultHistoryCard results={viewResults} />
       </div>
     </div>
   );
