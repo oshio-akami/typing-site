@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "../button";
-import { Card, CardContent, CardHeader } from "../card";
+import { Card, CardContent } from "../card";
 import { DiffHighlight } from "./diffHighlight";
 import Text from "../text";
 import { RefreshCcwIcon } from "lucide-react";
@@ -16,7 +16,7 @@ export default function CompareTextView({ originalText, inputText }: Props) {
     <div className="flex flex-col lg:flex-row gap-10  w-full">
       <div className="flex-2/5">
         <p className="text-2xl h-10">見本の文章</p>
-        <Card className="overflow-hidden gap-0 pt-0  border-1 border-gray-300 bg-gray-100">
+        <Card className="overflow-hidden gap-0 pt-0  border-1 border-gray-100 bg-gray-50">
           <CardContent className="m-0 p-5">
             <div className=" pr-2 text-[1rem] h-[300px] overflow-y-scroll whitespace-pre-wrap">
               {originalText}
@@ -36,7 +36,7 @@ export default function CompareTextView({ originalText, inputText }: Props) {
             </Text>
           </Button>
         </div>
-        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary-300 bg-secondary-50">
+        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary-100 bg-blue-50">
           <CardContent className="m-0 p-5">
             {viewHighLight ? (
               <DiffHighlight
