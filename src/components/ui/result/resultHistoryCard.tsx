@@ -13,16 +13,17 @@ export default function ResultHistoryCard({ className = "", results }: Props) {
   const [targetResult, setTargetResult] = useState<ViewResult>(results[0]);
   return (
     <Card className={`w-full gap-0 bg-white rounded-none ${className}`}>
-      <HistoryChart
-        height="300px"
-        className="pl-5 pr-5"
-        results={results}
-        setTargetResult={setTargetResult}
-      />
-      <p className="text-right m-0 mr-10">
-        ※グラフをクリックして過去の結果を確認できます
-      </p>
-      <p className="text-2xl text-center underline">
+      <div className="border-b-2 pb-5 ml-10 mr-10">
+        <HistoryChart
+          height="300px"
+          results={results}
+          setTargetResult={setTargetResult}
+        />
+        <p className="text-right m-0 mr-10">
+          ※グラフをクリックして過去の結果を確認できます
+        </p>
+      </div>
+      <p className="text-2xl text-center underline mt-5">
         {targetResult.title}の記録
       </p>
       <ResultCard

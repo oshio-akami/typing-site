@@ -6,7 +6,7 @@ import Result from "./components/pages/result";
 
 function App() {
   return (
-    <div className="bg-primary-50 h-full">
+    <div className="bg-secondary h-full">
       <div>
         <HashRouter>
           <Routes>

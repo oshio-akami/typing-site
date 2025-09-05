@@ -37,7 +37,8 @@ export default function Result() {
         </div>
         <div className="flex gap-10 justify-center ">
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white flex-1/2 h-12 text-xl"
+            className="flex-1/2 h-12 text-xl"
+            variant="default"
             onClick={() =>
               navigate("/play", {
                 state: { originalText: result.originalText },
@@ -48,7 +49,8 @@ export default function Result() {
             <p>もう一度挑戦する</p>
           </Button>
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white  flex-1/2 h-12 text-xl"
+            className="flex-1/2 h-12 text-xl"
+            variant="default"
             onClick={() => navigate("/")}
           >
             <HomeIcon />

@@ -14,7 +14,9 @@ export default function Home() {
   return (
     <div className="wrapper">
       <div className="min-h-[100vh]">
-        <h1 className="text-3xl text-center font-bold mb-10">入力練習アプリ</h1>
+        <h1 className="text-accent text-3xl text-center font-bold mb-10">
+          入力練習アプリ
+        </h1>
         <Card className="w-full pl-20 pr-20 rounded-none">
           <CardContent className="flex flex-col gap-10">
             <div>
@@ -29,7 +31,8 @@ export default function Home() {
               </ul>
             </div>
             <Button
-              className="bg-primary-400 hover:bg-primary-500 text-white w-40 h-12 text-xl"
+              className="w-40 h-12 text-xl"
+              variant="default"
               onClick={() => navigate("/play", { state: { originalText: "" } })}
             >
               開始する

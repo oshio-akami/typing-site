@@ -49,7 +49,7 @@ export default function HistoryChart({
           cx={cx}
           cy={cy}
           r={activeTarget === point.title ? 6 : 5}
-          fill={activeTarget === point.title ? "orange" : "blue"}
+          fill={activeTarget === point.title ? "#e62727" : "#1e93ab"}
           stroke="#fff"
           strokeWidth={2}
           style={{ cursor: "pointer" }}
@@ -79,7 +79,7 @@ export default function HistoryChart({
           <YAxis domain={[0, 100]} tickFormatter={(value) => `${value}%`} />
           <Line
             dataKey="accuracy"
-            stroke="#3578fc"
+            stroke="#1e93ab"
             strokeWidth={3}
             dot={(props) => {
               const { key, ...rest } = props;

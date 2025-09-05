@@ -90,7 +90,8 @@ export default function Play() {
         </Card>
         <div className="flex gap-10 justify-center ">
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white w-40 h-12 text-xl"
+            className="w-40 h-12 text-xl"
+            variant="default"
             onClick={() => {
               inputRef.current?.focus();
               setIsRunning(true);
@@ -101,7 +102,8 @@ export default function Play() {
             <p>{isRunning ? "計測中" : "開始"}</p>
           </Button>
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white  w-40 h-12 text-xl"
+            className="w-40 h-12 text-xl"
+            variant="default"
             onClick={() => {
               const result = getResult();
               navigate("/result", {
@@ -117,7 +119,8 @@ export default function Play() {
             <p>終了</p>
           </Button>
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white  w-40 h-12 text-xl"
+            className="w-40 h-12 text-xl"
+            variant="default"
             onClick={() => {
               setTime(0);
               if (inputRef.current?.value) {
@@ -130,7 +133,8 @@ export default function Play() {
             <p>リセット</p>
           </Button>
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white  w-40 h-12 text-xl"
+            className="w-40 h-12 text-xl"
+            variant="default"
             onClick={() => navigate("/")}
           >
             <HomeIcon />
@@ -140,12 +144,12 @@ export default function Play() {
         <div className="flex gap-10 h-[600px] w-full">
           <div className="flex-1/2">
             <Card className="overflow-hidden pt-0  rounded-none">
-              <CardHeader className="bg-primary-500 flex items-center h-20 pl-5">
+              <CardHeader className="bg-primary flex items-center h-20 pl-5">
                 <h2 className="text-white text-2xl">見本</h2>
               </CardHeader>
               <CardContent>
                 <Textarea
-                  className="bg-white h-[500px] resize-none disabled:opacity-100 outline-none focus-visible:ring-0 rounded-none"
+                  className="bg-white h-[500px] !text-[1rem] resize-none disabled:opacity-100 outline-none focus-visible:ring-0 rounded-none"
                   placeholder="ここに見本を入力"
                   value={originalText}
                   onChange={(e) => setOriginalText(e.target.value)}
@@ -156,13 +160,13 @@ export default function Play() {
           </div>
           <div className="flex-1/2">
             <Card className="overflow-hidden pt-0  rounded-none">
-              <CardHeader className="bg-primary-500 flex items-center h-20 pl-5">
+              <CardHeader className="bg-primary flex items-center h-20 pl-5">
                 <h2 className="text-white text-2xl">ここに入力</h2>
               </CardHeader>
               <CardContent>
                 <Textarea
                   ref={inputRef}
-                  className="bg-white min-h-[500px] resize-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 rounded-none"
+                  className="bg-white min-h-[500px] !text-[1rem] resize-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0 rounded-none"
                   placeholder="ここに入力"
                   disabled={!isRunning}
                 />
