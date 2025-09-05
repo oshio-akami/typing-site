@@ -6,7 +6,6 @@ permissions:
   id-token: write
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
