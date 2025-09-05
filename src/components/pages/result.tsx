@@ -32,7 +32,9 @@ export default function Result() {
     <div className="wrapper">
       <div className="flex flex-col gap-5 mb-5">
         <div>
-          <p className="text-3xl text-center mb-5 font-bold">タイピング結果</p>
+          <p className="text-accent text-3xl text-center mb-5 font-bold">
+            タイピング結果
+          </p>
           <ResultCard col={false} result={result} />
         </div>
         <div className="flex gap-10 justify-center ">
@@ -58,7 +60,9 @@ export default function Result() {
           </Button>
         </div>
         <div>
-          <p className="text-3xl text-center mt-5 mb-5 font-bold">過去の結果</p>
+          <p className="text-accent text-3xl text-center mt-5 mb-5 font-bold">
+            過去の結果
+          </p>
           <ResultHistoryCard results={viewResults} />
         </div>
       </div>

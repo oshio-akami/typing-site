@@ -39,7 +39,9 @@ export default function Home() {
             </Button>
           </CardContent>
         </Card>
-        <p className="text-3xl text-center mb-5 mt-5">過去の結果</p>
+        <p className="text-accent text-3xl font-bold text-center mb-5 mt-5">
+          過去の結果
+        </p>
         <ResultHistoryCard results={viewResults} />
       </div>
     </div>
