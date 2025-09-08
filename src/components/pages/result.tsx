@@ -66,6 +66,10 @@ export default function Result() {
           <ResultHistoryCard results={viewResults} />
         </div>
       </div>
+      <img
+        src="typing-character.webp"
+        className="fixed bottom-2 right-2 hidden w-[5%] h-auto lg:block  object-contain"
+      />
     </div>
   );
 }
