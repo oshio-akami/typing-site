@@ -44,19 +44,19 @@ export default function ResultLabel({ result, className = "" }: Props) {
         <p className="text-xl pl-[1rem]">{result.originalText.length}文字</p>
       </div>
       <div>
-        <Text leftSection={<XCircleIcon className="text-secondary-500" />}>
+        <Text leftSection={<XCircleIcon className="text-blue-500" />}>
           入力ミス
         </Text>
         <p className="text-xl pl-[1rem]">{result.missTakeCount}文字</p>
       </div>
       <div>
-        <Text leftSection={<HelpCircleIcon className="text-secondary-500" />}>
+        <Text leftSection={<HelpCircleIcon className="text-blue-500" />}>
           入力漏れ
         </Text>
         <p className="text-xl pl-[1rem]">{result.omissionCount}文字</p>
       </div>
       <div>
-        <Text leftSection={<HelpCircleIcon className="text-secondary-500" />}>
+        <Text leftSection={<HelpCircleIcon className="text-blue-500" />}>
           余計な入力
         </Text>
         <p className="text-xl pl-[1rem]">{result.insertionCount}文字</p>
@@ -84,7 +84,8 @@ export default function ResultLabel({ result, className = "" }: Props) {
             state: { originalText: result.originalText },
           })
         }
-        className=" bg-primary-400 hover:bg-primary-500 text-white  w-70 h-12 text-xl"
+        className="w-70 h-12 text-xl"
+        variant="default"
       >
         <RefreshCcwIcon />
         <p>もう一度挑戦する</p>

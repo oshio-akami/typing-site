@@ -1,13 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Card } from "../ui/card";
 import { HomeIcon, PlayIcon } from "lucide-react";
 import { Button } from "../ui/button";
-import HistoryChart from "../ui/result/historyChart";
 import ResultCard from "../ui/result/resultCard";
 import type { Result } from "@/types/result";
 import { getResults } from "@/lib/localStorage/results";
 import ResultHistoryCard from "../ui/result/resultHistoryCard";
 import { useEffect } from "react";
+import CharacterView from "../ui/characterView";
 
 export default function Result() {
   const location = useLocation();
@@ -23,20 +22,6 @@ export default function Result() {
   }
 
   const results = getResults();
-  const resultHistories = [...results].slice(1, results.length);
-
-  const resultCards = resultHistories.map((result, index) => {
-    const title = index === 0 ? "前回" : `${index + 1}回前`;
-
-    return (
-      <ResultHistoryCard
-        key={index}
-        className="mb-5 shadow-md border-2"
-        title={title}
-        result={result}
-      />
-    );
-  });
   const viewResults = [...results]
     .map((result, index) => ({
       ...result,
@@ -48,12 +33,15 @@ export default function Result() {
     <div className="wrapper">
       <div className="flex flex-col gap-5 mb-5">
         <div>
-          <p className="text-3xl text-center mb-5 font-bold">タイピング結果</p>
+          <p className="text-accent text-3xl text-center mb-5 font-bold">
+            タイピング結果
+          </p>
           <ResultCard col={false} result={result} />
         </div>
         <div className="flex gap-10 justify-center ">
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white flex-1/2 h-12 text-xl"
+            className="flex-1/2 h-12 text-xl"
+            variant="default"
             onClick={() =>
               navigate("/play", {
                 state: { originalText: result.originalText },
@@ -64,7 +52,8 @@ export default function Result() {
             <p>もう一度挑戦する</p>
           </Button>
           <Button
-            className="bg-primary-400 hover:bg-primary-500 text-white  flex-1/2 h-12 text-xl"
+            className="flex-1/2 h-12 text-xl"
+            variant="default"
             onClick={() => navigate("/")}
           >
             <HomeIcon />
@@ -72,14 +61,13 @@ export default function Result() {
           </Button>
         </div>
         <div>
-          <p className="text-3xl text-center mt-5 mb-5 font-bold">過去の結果</p>
-
-          <Card className="w-full bg-white rounded-none p-3 mb-5">
-            <HistoryChart results={viewResults} />
-          </Card>
-          {resultCards}
+          <p className="text-accent text-3xl text-center mt-5 mb-5 font-bold">
+            過去の結果
+          </p>
+          <ResultHistoryCard results={viewResults} />
         </div>
       </div>
+      <CharacterView className="fixed bottom-2 right-2 hidden w-[5%] h-auto lg:block" />
     </div>
   );
 }

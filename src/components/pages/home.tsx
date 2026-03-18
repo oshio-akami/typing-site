@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
-import HistoryChart from "../ui/result/historyChart";
 import { getResults } from "@/lib/localStorage/results";
 import ResultHistoryCard from "../ui/result/resultHistoryCard";
+import CharacterView from "../ui/characterView";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -13,18 +13,12 @@ export default function Home() {
     title: index === 0 ? "前回" : `${index + 1}回前`,
   }));
 
-  const resultCards = viewResults.map((result, index) => (
-    <ResultHistoryCard
-      key={index}
-      className="mb-5"
-      title={result.title}
-      result={result}
-    />
-  ));
   return (
     <div className="wrapper">
       <div className="min-h-[100vh]">
-        <h1 className="text-3xl text-center font-bold mb-10">入力練習アプリ</h1>
+        <h1 className="text-accent text-3xl text-center font-bold mb-10">
+          入力練習アプリ
+        </h1>
         <Card className="w-full pl-20 pr-20 rounded-none">
           <CardContent className="flex flex-col gap-10">
             <div>
@@ -39,19 +33,20 @@ export default function Home() {
               </ul>
             </div>
             <Button
-              className="bg-primary-400 hover:bg-primary-500 text-white w-40 h-12 text-xl"
+              className="w-40 h-12 text-xl"
+              variant="default"
               onClick={() => navigate("/play", { state: { originalText: "" } })}
             >
               開始する
             </Button>
           </CardContent>
         </Card>
-        <p className="text-3xl text-center mb-5 mt-5">過去の結果</p>
-        <Card className="w-full bg-white rounded-none p-3 mb-10">
-          <HistoryChart results={viewResults} />
-        </Card>
-        {resultCards}
+        <p className="text-accent text-3xl font-bold text-center mb-5 mt-5">
+          過去の結果
+        </p>
+        <ResultHistoryCard results={viewResults} />
       </div>
+      <CharacterView className="fixed bottom-2 right-2 hidden w-[5%] h-auto lg:block" />
     </div>
   );
 }
