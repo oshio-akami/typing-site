@@ -52,6 +52,7 @@ body {
   max-width: 90%;
   margin: 0 auto;
   padding: 2%;
+  min-height: 100vh;
 }
 svg:focus {
   outline: none;
@@ -159,13 +160,38 @@ svg:focus {
   animation: fadeIn 2s ease forwards;
 }
 
+@keyframes bounce-character {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20%);
+  }
+  35% {
+    transform: translateY(12%);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  65% {
+    transform: translateY(6%);
+  }
+  80% {
+    transform: translateY(-4%);
+  }
+  90% {
+    transform: translateY(2%);
+  }
+}
+
+.animate-bounce {
+  animation: bounce-character 1s ease-out forwards;
+}
+
 @theme {
-  /* プライマリー（シアン系 #1E93AB） */
-  --color-primary: #1e93ab;
-  /* セカンダリー（ベージュ系 #F3F2EC） */
-  --color-secondary: #f3f2ec;
-  /* アクセント / ダンジャー（赤系 #E62727） */
-  --color-accent: #e62727;
-  /* ニュートラル / 背景（グレー #DCDCDC） */
-  --color-neutral: #dcdcdc;
+  --color-primary: #4a7a4a; /* 明るめくっきり0.4：ボタンなど */
+  --color-accent: #2f4f2f; /* 濃いめ0.6：文字強調用 */
+  --color-neutral: #c0d0c0; /* 明るめ0.2：補助テキスト */
+  --color-secondary: #cef5cf; /* 薄め0.1：背景（温かみのあるオフホワイト） */
 }

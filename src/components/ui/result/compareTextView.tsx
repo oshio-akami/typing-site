@@ -16,7 +16,7 @@ export default function CompareTextView({ originalText, inputText }: Props) {
     <div className="flex flex-col lg:flex-row gap-10  w-full">
       <div className="flex-2/5">
         <p className="text-2xl h-10">見本の文章</p>
-        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary bg-secondary">
+        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary bg-[#f3f3f3]">
           <CardContent className="m-0 p-5">
             <div className=" pr-2 text-[1rem] h-[300px] overflow-y-scroll whitespace-pre-wrap">
               {originalText}
@@ -44,7 +44,7 @@ export default function CompareTextView({ originalText, inputText }: Props) {
             </Text>
           </Button>
         </div>
-        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary bg-blue-50">
+        <Card className="overflow-hidden gap-0 pt-0  border-1 border-secondary bg-[#f3f3f3]">
           <CardContent className="m-0 p-5">
             {viewHighLight ? (
               <DiffHighlight

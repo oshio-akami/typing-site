@@ -144,7 +144,7 @@ export default function Play() {
         <div className="flex gap-10 h-[600px] w-full">
           <div className="flex-1/2">
             <Card className="overflow-hidden pt-0  rounded-none">
-              <CardHeader className="bg-primary flex items-center h-20 pl-5">
+              <CardHeader className="bg-neutral flex items-center h-15 pl-5">
                 <h2 className="text-white text-2xl">見本</h2>
               </CardHeader>
               <CardContent>
@@ -160,7 +160,7 @@ export default function Play() {
           </div>
           <div className="flex-1/2">
             <Card className="overflow-hidden pt-0  rounded-none">
-              <CardHeader className="bg-primary flex items-center h-20 pl-5">
+              <CardHeader className="bg-neutral flex items-center h-15 pl-5">
                 <h2 className="text-white text-2xl">ここに入力</h2>
               </CardHeader>
               <CardContent>

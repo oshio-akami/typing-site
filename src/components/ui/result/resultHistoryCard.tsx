@@ -9,8 +9,22 @@ type Props = {
   results: ViewResult[];
 };
 
+const defaultResult: ViewResult = {
+  title: "前回",
+  date: new Date(),
+  timeInSeconds: 0,
+  originalText: "",
+  inputText: "",
+  accuracy: 100,
+  missTakeCount: 0,
+  omissionCount: 0,
+  insertionCount: 0,
+};
+
 export default function ResultHistoryCard({ className = "", results }: Props) {
-  const [targetResult, setTargetResult] = useState<ViewResult>(results[0]);
+  const [targetResult, setTargetResult] = useState<ViewResult>(
+    results[0] ?? defaultResult,
+  );
   return (
     <Card className={`w-full gap-0 bg-white rounded-none ${className}`}>
       <div className="border-b-2 pb-5 ml-10 mr-10">

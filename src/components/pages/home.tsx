@@ -3,6 +3,7 @@ import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
 import { getResults } from "@/lib/localStorage/results";
 import ResultHistoryCard from "../ui/result/resultHistoryCard";
+import CharacterView from "../ui/characterView";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export default function Home() {
     ...result,
     title: index === 0 ? "前回" : `${index + 1}回前`,
   }));
+
   return (
     <div className="wrapper">
       <div className="min-h-[100vh]">
@@ -44,10 +46,7 @@ export default function Home() {
         </p>
         <ResultHistoryCard results={viewResults} />
       </div>
-      <img
-        src="typing-character.webp"
-        className="fixed bottom-2 right-2 hidden w-[5%] h-auto lg:block  object-contain"
-      />
+      <CharacterView className="fixed bottom-2 right-2 hidden w-[5%] h-auto lg:block" />
     </div>
   );
 }
